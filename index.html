@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweets by Isis — Propuestas de Diseño</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: #111; min-height: 100vh; }
+
+/* ── Selector Bar ── */
+.selector-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10,8,6,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.bar-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.04em;
+}
+
+.bar-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.bar-tab {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.45);
+  padding: 6px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0.5px solid transparent;
+  transition: all 0.25s ease;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.bar-tab:hover {
+  color: rgba(255,255,255,0.75);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.bar-tab.active {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(255,255,255,0.2);
+}
+
+.bar-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.06em;
+}
+
+/* ── Panels ── */
+.panel {
+  display: none;
+  padding-top: 56px;
+}
+.panel.active {
+  display: block;
+}
+
+/* ── Shared mockup wrapper ── */
+.mockup-wrap {
+  max-width: 960px;
+  margin: 2.5rem auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+}
+
+/* ══════════════════════════════════════
+   PROPUESTA A — Pastelería de Lujo
+══════════════════════════════════════ */
+.pA { font-family: 'Jost', sans-serif; background: #fdf8f4; color: #2a1f1a; }
+.pA-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid #e8d9cc; }
+.pA-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; letter-spacing: 0.08em; color: #2a1f1a; }
+.pA-logo span { color: #c9a96e; font-style: italic; }
+.pA-nav-links { display: flex; gap: 2rem; list-style: none; }
+.pA-nav-links li { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #7a6355; cursor: pointer; }
+.pA-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 380px; }
+.pA-hero-text { display: flex; flex-direction: column; justify-content: center; padding: 3rem 2.5rem; background: #fdf8f4; }
+.pA-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c9a96e; margin-bottom: 1.2rem; }
+.pA-headline { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 300; line-height: 1.15; color: #2a1f1a; margin: 0 0 1.2rem; }
+.pA-headline em { font-style: italic; color: #c9a96e; }
+.pA-subtext { font-size: 13px; font-weight: 300; color: #7a6355; line-height: 1.8; margin: 0 0 2rem; max-width: 300px; }
+.pA-cta-row { display: flex; gap: 1rem; align-items: center; }
+.pA-btn-primary { background: #2a1f1a; color: #fdf8f4; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.85rem 1.8rem; border: none; cursor: pointer; }
+.pA-btn-ghost { background: transparent; color: #2a1f1a; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.85rem 1.8rem; border: 0.5px solid #2a1f1a; cursor: pointer; }
+.pA-hero-visual { background: #f0e6da; display: flex; align-items: center; justify-content: center; position: relative; }
+.pA-badge { position: absolute; top: 1.5rem; right: 2rem; width: 72px; height: 72px; border-radius: 50%; border: 0.5px solid #c9a96e; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+.pA-badge-text { font-family: 'Cormorant Garamond', serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #c9a96e; line-height: 1.4; }
+.pA-services { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 0.5px solid #e8d9cc; }
+.pA-service-card { padding: 2rem 2.5rem; border-right: 0.5px solid #e8d9cc; }
+.pA-service-card:last-child { border-right: none; }
+.pA-service-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: #e8d9cc; line-height: 1; margin-bottom: 0.8rem; }
+.pA-service-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: #2a1f1a; margin: 0 0 0.6rem; }
+.pA-service-desc { font-size: 12px; font-weight: 300; color: #7a6355; line-height: 1.7; }
+.pA-gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 160px 160px; gap: 3px; margin-top: 3px; }
+.pA-gallery-item { background: #e8d9cc; position: relative; display: flex; align-items: center; justify-content: center; }
+.pA-gallery-item.tall { grid-row: span 2; }
+.pA-gallery-label { position: absolute; bottom: 12px; left: 14px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #7a6355; background: rgba(253,248,244,0.85); padding: 4px 10px; }
+.pA-footer-strip { background: #2a1f1a; color: #c9a96e; padding: 1.2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; margin-top: 3px; }
+.pA-footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; letter-spacing: 0.06em; }
+.pA-footer-tag { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7a6355; }
+
+/* ══════════════════════════════════════
+   PROPUESTA B — Sweet & Modern
+══════════════════════════════════════ */
+.pB { font-family: 'DM Sans', sans-serif; background: #fff9f7; color: #1a0e0a; }
+.pB-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; }
+.pB-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #1a0e0a; }
+.pB-logo .dot { color: #f06292; }
+.pB-nav-links { display: flex; gap: 0; list-style: none; }
+.pB-nav-links li { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: #7a5c55; cursor: pointer; padding: 0.4rem 1rem; border-radius: 20px; }
+.pB-nav-links li.active { background: #fce4ec; color: #c2185b; }
+.pB-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; padding: 2rem 2rem 0; }
+.pB-hero-left { display: flex; flex-direction: column; justify-content: center; padding: 0 2rem 2rem 0; }
+.pB-tag { display: inline-flex; align-items: center; gap: 6px; background: #fce4ec; color: #c2185b; font-size: 11px; font-weight: 500; padding: 5px 14px; border-radius: 20px; margin-bottom: 1.2rem; width: fit-content; }
+.pB-headline { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; line-height: 1.05; color: #1a0e0a; margin: 0 0 1rem; }
+.pB-headline .pink { color: #f06292; font-style: italic; }
+.pB-headline .outline { -webkit-text-stroke: 1.5px #1a0e0a; color: transparent; }
+.pB-subtext { font-size: 13px; font-weight: 300; color: #7a5c55; line-height: 1.75; max-width: 320px; margin: 0 0 1.8rem; }
+.pB-cta-row { display: flex; gap: 10px; align-items: center; }
+.pB-btn-main { background: #f06292; color: white; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; padding: 0.85rem 1.8rem; border: none; border-radius: 30px; cursor: pointer; }
+.pB-btn-outline { background: transparent; color: #1a0e0a; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 400; padding: 0.85rem 1.6rem; border: 1.5px solid #1a0e0a; border-radius: 30px; cursor: pointer; }
+.pB-hero-right { display: flex; align-items: flex-end; justify-content: center; padding-top: 1.5rem; position: relative; }
+.pB-hero-card { background: #fce4ec; border-radius: 24px 24px 0 0; width: 100%; min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.pB-floating-badge { position: absolute; top: 20px; right: 16px; background: #1a0e0a; color: #fff9f7; font-size: 10px; font-weight: 500; padding: 8px 14px; border-radius: 20px; letter-spacing: 0.05em; z-index: 2; }
+.pB-stats-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #f5d5de; }
+.pB-stat { background: #fff9f7; padding: 1.2rem 2rem; display: flex; gap: 14px; align-items: center; }
+.pB-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #f06292; line-height: 1; }
+.pB-stat-label { font-size: 11px; font-weight: 400; color: #7a5c55; line-height: 1.5; }
+.pB-cards-section { padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pB-card { border-radius: 18px; padding: 1.6rem; position: relative; overflow: hidden; }
+.pB-card.productos { background: #fce4ec; }
+.pB-card.cursos { background: #f3e5f5; }
+.pB-card-emoji { font-size: 28px; margin-bottom: 0.8rem; display: block; }
+.pB-card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #1a0e0a; margin: 0 0 0.5rem; }
+.pB-card-desc { font-size: 12px; font-weight: 300; color: #5a4040; line-height: 1.65; margin: 0 0 1.2rem; }
+.pB-card-link { font-size: 12px; font-weight: 500; color: #c2185b; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+.pB-card-link::after { content: '→'; }
+.pB-card-bubble { position: absolute; bottom: -20px; right: -20px; width: 90px; height: 90px; border-radius: 50%; opacity: 0.2; }
+.pB-card.productos .pB-card-bubble { background: #f06292; }
+.pB-card.cursos .pB-card-bubble { background: #ab47bc; }
+.pB-gallery-section { padding: 0 2rem 2rem; }
+.pB-section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #f06292; margin-bottom: 1rem; }
+.pB-gallery-scroll { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.pB-gallery-thumb { border-radius: 14px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.pB-gallery-thumb:nth-child(1) { background: #fce4ec; }
+.pB-gallery-thumb:nth-child(2) { background: #e8f5e9; }
+.pB-gallery-thumb:nth-child(3) { background: #fff3e0; }
+.pB-gallery-thumb:nth-child(4) { background: #ede7f6; }
+.pB-thumb-label { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-size: 10px; font-weight: 500; color: #5a4040; }
+.pB-cta-banner { margin: 0 2rem 2rem; background: #1a0e0a; border-radius: 20px; padding: 1.8rem 2rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.pB-cta-banner-text h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff9f7; margin: 0 0 0.3rem; }
+.pB-cta-banner-text p { font-size: 12px; font-weight: 300; color: #b0908a; margin: 0; }
+.pB-cta-banner-btn { background: #f06292; color: white; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; padding: 0.75rem 1.5rem; border: none; border-radius: 30px; cursor: pointer; white-space: nowrap; }
+
+/* ══════════════════════════════════════
+   PROPUESTA C — Híbrida
+══════════════════════════════════════ */
+.pC { font-family: 'DM Sans', sans-serif; background: #fdf7f2; color: #1e1210; }
+.pC-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 2.5rem; }
+.pC-logo { display: flex; flex-direction: column; line-height: 1; }
+.pC-logo-top { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: #b07a6e; }
+.pC-logo-main { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #1e1210; letter-spacing: 0.02em; }
+.pC-logo-main em { font-style: italic; color: #d4836a; }
+.pC-nav-links { display: flex; gap: 0.2rem; list-style: none; }
+.pC-nav-links li { font-size: 12px; font-weight: 400; letter-spacing: 0.04em; color: #7a5c55; cursor: pointer; padding: 0.4rem 1rem; border-radius: 20px; }
+.pC-nav-links li.active { background: #fce4e0; color: #c2401a; }
+.pC-hero { display: grid; grid-template-columns: 1fr 1fr; padding: 0 2.5rem; }
+.pC-hero-left { display: flex; flex-direction: column; justify-content: center; padding: 2.5rem 2rem 2.5rem 0; }
+.pC-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 1.4rem; }
+.pC-eyebrow-line { width: 28px; height: 0.5px; background: #d4836a; }
+.pC-eyebrow-text { font-size: 11px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: #d4836a; }
+.pC-headline { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 400; line-height: 1.08; color: #1e1210; margin: 0 0 1.2rem; }
+.pC-headline em { font-style: italic; color: #d4836a; }
+.pC-headline strong { font-weight: 600; }
+.pC-subtext { font-size: 13px; font-weight: 300; color: #7a5c55; line-height: 1.8; max-width: 300px; margin: 0 0 2rem; }
+.pC-cta-row { display: flex; gap: 10px; align-items: center; }
+.pC-btn-primary { background: #1e1210; color: #fdf7f2; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; padding: 0.85rem 1.8rem; border: none; border-radius: 30px; cursor: pointer; }
+.pC-btn-ghost { background: transparent; color: #1e1210; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 400; padding: 0.85rem 1.6rem; border: 1px solid #c8b0a8; border-radius: 30px; cursor: pointer; }
+.pC-hero-right { display: flex; align-items: flex-end; justify-content: center; padding-top: 1.5rem; }
+.pC-hero-card { background: #f7e8e0; border-radius: 22px 22px 0 0; width: 88%; min-height: 310px; display: flex; align-items: center; justify-content: center; position: relative; }
+.pC-pill-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #d4836a; color: #fff; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; white-space: nowrap; }
+.pC-corner-tag { position: absolute; bottom: 20px; right: -10px; background: #1e1210; color: #fdf7f2; font-size: 10px; font-weight: 400; letter-spacing: 0.08em; padding: 8px 14px; border-radius: 10px; }
+.pC-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #edd9cf; margin: 2.5rem 2.5rem 0; border-radius: 14px; overflow: hidden; }
+.pC-stat { background: #fdf7f2; padding: 1.2rem 1.5rem; text-align: center; }
+.pC-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: #d4836a; line-height: 1; margin-bottom: 4px; }
+.pC-stat-label { font-size: 11px; font-weight: 300; color: #7a5c55; line-height: 1.5; }
+.pC-services { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 2rem 2.5rem; }
+.pC-svc { border-radius: 18px; padding: 1.8rem; position: relative; overflow: hidden; }
+.pC-svc.productos { background: #fce8e2; }
+.pC-svc.academia { background: #1e1210; }
+.pC-svc-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #d4836a; margin-bottom: 0.8rem; }
+.pC-svc-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: #1e1210; margin: 0 0 0.6rem; line-height: 1.15; }
+.pC-svc.academia .pC-svc-title { color: #fdf7f2; }
+.pC-svc-desc { font-size: 12px; font-weight: 300; color: #7a5c55; line-height: 1.7; margin: 0 0 1.4rem; }
+.pC-svc.academia .pC-svc-desc { color: #b09090; }
+.pC-svc-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: #1e1210; cursor: pointer; background: #fdf7f2; padding: 7px 16px; border-radius: 20px; }
+.pC-svc.academia .pC-svc-cta { background: #d4836a; color: #fff; }
+.pC-svc-deco { position: absolute; bottom: -18px; right: -18px; width: 80px; height: 80px; border-radius: 50%; opacity: 0.18; background: #d4836a; }
+.pC-gallery { padding: 0 2.5rem; }
+.pC-section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.2rem; }
+.pC-section-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: #1e1210; margin: 0; }
+.pC-section-line { flex: 1; height: 0.5px; background: #edd9cf; }
+.pC-gallery-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; grid-template-rows: 130px 130px; gap: 10px; }
+.pC-gallery-item { border-radius: 14px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.pC-gallery-item.span2 { grid-row: span 2; }
+.pC-gallery-item:nth-child(1) { background: #f7e8e0; }
+.pC-gallery-item:nth-child(2) { background: #fce4ec; }
+.pC-gallery-item:nth-child(3) { background: #fce8e2; }
+.pC-gallery-item:nth-child(4) { background: #f3ede8; }
+.pC-gallery-item:nth-child(5) { background: #fdf1ea; }
+.pC-gallery-label { position: absolute; bottom: 10px; left: 12px; font-size: 10px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: #7a5c55; background: rgba(253,247,242,0.82); padding: 3px 10px; border-radius: 10px; }
+.pC-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 2rem 2.5rem; }
+.pC-quote-block { background: #f7e8e0; border-radius: 18px; padding: 1.8rem; display: flex; flex-direction: column; justify-content: space-between; }
+.pC-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; color: #d4836a; line-height: 0.7; margin-bottom: 0.8rem; }
+.pC-quote-text { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; font-weight: 400; color: #1e1210; line-height: 1.55; margin: 0 0 1rem; }
+.pC-quote-author { font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: #b07a6e; }
+.pC-contact-block { background: #1e1210; border-radius: 18px; padding: 1.8rem; display: flex; flex-direction: column; justify-content: space-between; }
+.pC-contact-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: #fdf7f2; margin: 0 0 0.5rem; line-height: 1.2; }
+.pC-contact-title em { color: #d4836a; font-style: italic; }
+.pC-contact-desc { font-size: 12px; font-weight: 300; color: #b09090; line-height: 1.7; margin: 0 0 1.4rem; }
+.pC-contact-btn { background: #d4836a; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; padding: 0.8rem 1.5rem; border: none; border-radius: 30px; cursor: pointer; align-self: flex-start; }
+.pC-footer { border-top: 0.5px solid #edd9cf; padding: 1.2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+.pC-footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: #7a5c55; }
+.pC-footer-links { display: flex; gap: 1.5rem; }
+.pC-footer-link { font-size: 11px; font-weight: 400; letter-spacing: 0.08em; color: #b07a6e; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<!-- Selector Bar -->
+<div class="selector-bar">
+  <span class="bar-brand">Sweets by Isis — Propuestas</span>
+  <div class="bar-tabs">
+    <button class="bar-tab active" onclick="showPanel('a')">Propuesta A — Lujo</button>
+    <button class="bar-tab" onclick="showPanel('b')">Propuesta B — Modern</button>
+    <button class="bar-tab" onclick="showPanel('c')">Propuesta C — Híbrida</button>
+  </div>
+  <span class="bar-note">Joel Vega · BizGen</span>
+</div>
+
+<!-- ═══ PANEL A ═══ -->
+<div id="panel-a" class="panel active">
+  <div class="mockup-wrap">
+    <div class="pA">
+      <nav class="pA-nav">
+        <div class="pA-logo">Sweets <span>by Isis</span></div>
+        <ul class="pA-nav-links">
+          <li>Productos</li><li>Academia</li><li>Galería</li><li>Contacto</li>
+        </ul>
+      </nav>
+      <div class="pA-hero">
+        <div class="pA-hero-text">
+          <p class="pA-eyebrow">Repostería artesanal · South Florida</p>
+          <h1 class="pA-headline">Cada dulce,<br>una <em>obra de arte</em></h1>
+          <p class="pA-subtext">Creaciones personalizadas para bodas, celebraciones y momentos que merecen ser recordados. También formación artesanal para quienes quieren aprender el oficio.</p>
+          <div class="pA-cta-row">
+            <button class="pA-btn-primary">Hacer pedido</button>
+            <button class="pA-btn-ghost">Ver cursos</button>
+          </div>
+        </div>
+        <div class="pA-hero-visual">
+          <div class="pA-badge"><span class="pA-badge-text">Handmade<br>with love</span></div>
+          <svg width="180" height="200" viewBox="0 0 180 200" fill="none">
+            <ellipse cx="90" cy="175" rx="72" ry="14" fill="#e8d9cc"/>
+            <rect x="20" y="130" width="140" height="50" rx="4" fill="#f5ede3"/>
+            <rect x="20" y="130" width="140" height="8" fill="#e8d9cc"/>
+            <rect x="30" y="85" width="120" height="50" rx="4" fill="#fdf1e8"/>
+            <rect x="30" y="85" width="120" height="8" fill="#e8d9cc"/>
+            <rect x="44" y="48" width="92" height="42" rx="4" fill="#f5ede3"/>
+            <rect x="44" y="48" width="92" height="8" fill="#e8d9cc"/>
+            <ellipse cx="90" cy="48" rx="46" ry="10" fill="#fdf1e8"/>
+            <line x1="90" y1="14" x2="90" y2="36" stroke="#c9a96e" stroke-width="1"/>
+            <ellipse cx="90" cy="12" rx="5" ry="8" fill="#c9a96e" opacity="0.7"/>
+            <path d="M50 130 Q60 118 70 130" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+            <path d="M80 130 Q90 118 100 130" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+            <path d="M110 130 Q120 118 130 130" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+            <circle cx="62" cy="100" r="4" fill="#f4c0d1" opacity="0.6"/>
+            <circle cx="90" cy="97" r="5" fill="#c9a96e" opacity="0.4"/>
+            <circle cx="118" cy="100" r="4" fill="#f4c0d1" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+      <div class="pA-services">
+        <div class="pA-service-card">
+          <div class="pA-service-num">01</div>
+          <h3 class="pA-service-title">Productos & Encargos</h3>
+          <p class="pA-service-desc">Cajas de regalo, fresas decoradas, cakesicles y tortas personalizadas para bodas y eventos especiales.</p>
+        </div>
+        <div class="pA-service-card">
+          <div class="pA-service-num">02</div>
+          <h3 class="pA-service-title">Academia de Decoración</h3>
+          <p class="pA-service-desc">Talleres presenciales y online. Aprende técnicas de glaseado, chocolate y diseño artesanal paso a paso.</p>
+        </div>
+        <div class="pA-service-card">
+          <div class="pA-service-num">03</div>
+          <h3 class="pA-service-title">Cotización Rápida</h3>
+          <p class="pA-service-desc">Describe tu ocasión y recibirás una propuesta personalizada en menos de 24 horas.</p>
+        </div>
+      </div>
+      <div class="pA-gallery">
+        <div class="pA-gallery-item tall">
+          <svg width="90" height="120" viewBox="0 0 90 120" fill="none">
+            <rect x="10" y="60" width="70" height="55" rx="3" fill="#e8d9cc"/>
+            <rect x="18" y="35" width="54" height="30" rx="3" fill="#f0e6da"/>
+            <ellipse cx="45" cy="35" rx="27" ry="7" fill="#e8d9cc"/>
+            <circle cx="45" cy="22" r="8" fill="#f4c0d1" opacity="0.7"/>
+          </svg>
+          <div class="pA-gallery-label">Wedding cake</div>
+        </div>
+        <div class="pA-gallery-item">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+            <rect x="5" y="20" width="60" height="45" rx="3" fill="#f0e6da"/>
+            <circle cx="20" cy="14" r="8" fill="#ED93B1" opacity="0.5"/>
+            <circle cx="35" cy="11" r="8" fill="#ED93B1" opacity="0.5"/>
+            <circle cx="50" cy="14" r="8" fill="#ED93B1" opacity="0.5"/>
+          </svg>
+          <div class="pA-gallery-label">Fresas deco</div>
+        </div>
+        <div class="pA-gallery-item">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+            <rect x="12" y="25" width="46" height="38" rx="20" fill="#f5ede3"/>
+            <rect x="12" y="25" width="46" height="12" rx="6" fill="#e8d9cc"/>
+            <rect x="20" y="12" width="4" height="16" rx="2" fill="#c9a96e"/>
+            <rect x="46" y="12" width="4" height="16" rx="2" fill="#c9a96e"/>
+          </svg>
+          <div class="pA-gallery-label">Cakesicles</div>
+        </div>
+        <div class="pA-gallery-item">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+            <circle cx="35" cy="35" r="28" fill="#f0e6da"/>
+            <path d="M20 35 Q35 18 50 35 Q35 52 20 35Z" fill="#e8d9cc"/>
+            <circle cx="35" cy="35" r="5" fill="#c9a96e" opacity="0.5"/>
+          </svg>
+          <div class="pA-gallery-label">Galletas</div>
+        </div>
+      </div>
+      <div class="pA-footer-strip">
+        <div class="pA-footer-logo">Sweets by Isis</div>
+        <div class="pA-footer-tag">Miami · South Florida</div>
+        <div class="pA-footer-tag">@sweets_by_isis</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PANEL B ═══ -->
+<div id="panel-b" class="panel">
+  <div class="mockup-wrap">
+    <div class="pB">
+      <nav class="pB-nav">
+        <div class="pB-logo">Sweets by Isis<span class="dot">.</span></div>
+        <ul class="pB-nav-links">
+          <li class="active">Inicio</li><li>Productos</li><li>Cursos</li><li>Contacto</li>
+        </ul>
+      </nav>
+      <div class="pB-hero">
+        <div class="pB-hero-left">
+          <div class="pB-tag">✦ Miami · South Florida</div>
+          <h1 class="pB-headline">Dulces que<br><span class="pink">enamoran,</span><br><span class="outline">cursos</span> que<br>inspiran</h1>
+          <p class="pB-subtext">Repostería personalizada para celebrar lo que más quieres. Y para los que quieren aprender — talleres con alma artesanal.</p>
+          <div class="pB-cta-row">
+            <button class="pB-btn-main">Hacer un pedido</button>
+            <button class="pB-btn-outline">Ver próximos cursos</button>
+          </div>
+        </div>
+        <div class="pB-hero-right">
+          <div class="pB-hero-card">
+            <div class="pB-floating-badge">Pedidos abiertos</div>
+            <svg width="160" height="200" viewBox="0 0 160 200" fill="none">
+              <ellipse cx="80" cy="178" rx="60" ry="12" fill="#f48fb1" opacity="0.35"/>
+              <rect x="14" y="128" width="132" height="52" rx="12" fill="#fff"/>
+              <rect x="14" y="128" width="132" height="18" rx="12" fill="#f8bbd0"/>
+              <rect x="24" y="80" width="112" height="52" rx="10" fill="#fce4ec"/>
+              <rect x="24" y="80" width="112" height="16" rx="10" fill="#f48fb1" opacity="0.6"/>
+              <rect x="38" y="42" width="84" height="42" rx="10" fill="#fff"/>
+              <rect x="38" y="42" width="84" height="16" rx="10" fill="#f8bbd0"/>
+              <ellipse cx="80" cy="42" rx="42" ry="9" fill="#fce4ec"/>
+              <line x1="80" y1="12" x2="80" y2="32" stroke="#f06292" stroke-width="1.5"/>
+              <ellipse cx="80" cy="10" rx="5" ry="8" fill="#f06292" opacity="0.8"/>
+              <circle cx="52" cy="96" r="5" fill="#f06292" opacity="0.5"/>
+              <circle cx="80" cy="94" r="6" fill="#ce93d8" opacity="0.5"/>
+              <circle cx="108" cy="96" r="5" fill="#f06292" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="pB-stats-strip">
+        <div class="pB-stat"><div class="pB-stat-num">5+</div><div class="pB-stat-label">años creando<br>momentos dulces</div></div>
+        <div class="pB-stat"><div class="pB-stat-num">100%</div><div class="pB-stat-label">personalizado<br>para ti</div></div>
+        <div class="pB-stat"><div class="pB-stat-num">24h</div><div class="pB-stat-label">respuesta a tu<br>cotización</div></div>
+      </div>
+      <div class="pB-cards-section">
+        <div class="pB-card productos">
+          <div class="pB-card-bubble"></div>
+          <span class="pB-card-emoji">🍓</span>
+          <h3 class="pB-card-title">Productos & Encargos</h3>
+          <p class="pB-card-desc">Cajas de regalo, fresas decoradas, cakesicles, galletas personalizadas y wedding cakes.</p>
+          <span class="pB-card-link">Ver catálogo</span>
+        </div>
+        <div class="pB-card cursos">
+          <div class="pB-card-bubble"></div>
+          <span class="pB-card-emoji">🎓</span>
+          <h3 class="pB-card-title">Academia Sweets</h3>
+          <p class="pB-card-desc">Talleres presenciales y online. Aprende glaseado, chocolate y decoración artesanal con Isis como tutora.</p>
+          <span class="pB-card-link">Ver próximas fechas</span>
+        </div>
+      </div>
+      <div class="pB-gallery-section">
+        <p class="pB-section-label">Galería de trabajos</p>
+        <div class="pB-gallery-scroll">
+          <div class="pB-gallery-thumb"><svg width="60" height="70" viewBox="0 0 60 70" fill="none"><rect x="8" y="30" width="44" height="35" rx="8" fill="#f48fb1" opacity="0.5"/><rect x="14" y="15" width="32" height="20" rx="6" fill="#f8bbd0"/><ellipse cx="30" cy="15" rx="16" ry="5" fill="#f48fb1" opacity="0.4"/></svg><div class="pB-thumb-label">Bodas</div></div>
+          <div class="pB-gallery-thumb"><svg width="60" height="70" viewBox="0 0 60 70" fill="none"><ellipse cx="30" cy="38" rx="20" ry="22" fill="#a5d6a7" opacity="0.5"/><path d="M18 30 Q30 18 42 30 Q30 48 18 30Z" fill="#66bb6a" opacity="0.4"/></svg><div class="pB-thumb-label">Fresas deco</div></div>
+          <div class="pB-gallery-thumb"><svg width="60" height="70" viewBox="0 0 60 70" fill="none"><rect x="15" y="22" width="30" height="42" rx="12" fill="#ffcc80" opacity="0.6"/><rect x="15" y="22" width="30" height="14" rx="8" fill="#ffa726" opacity="0.5"/></svg><div class="pB-thumb-label">Cakesicles</div></div>
+          <div class="pB-gallery-thumb"><svg width="60" height="70" viewBox="0 0 60 70" fill="none"><rect x="10" y="30" width="40" height="30" rx="8" fill="#ce93d8" opacity="0.5"/><circle cx="22" cy="25" r="8" fill="#ba68c8" opacity="0.4"/><circle cx="38" cy="25" r="8" fill="#ba68c8" opacity="0.4"/><circle cx="30" cy="20" r="8" fill="#ba68c8" opacity="0.4"/></svg><div class="pB-thumb-label">Galletas</div></div>
+        </div>
+      </div>
+      <div class="pB-cta-banner">
+        <div class="pB-cta-banner-text">
+          <h3>¿Lista para el próximo taller?</h3>
+          <p>Plazas limitadas · Modalidad presencial y online</p>
+        </div>
+        <button class="pB-cta-banner-btn">Reservar mi cupo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PANEL C ═══ -->
+<div id="panel-c" class="panel">
+  <div class="mockup-wrap">
+    <div class="pC">
+      <nav class="pC-nav">
+        <div class="pC-logo">
+          <span class="pC-logo-top">artisanal sweets</span>
+          <span class="pC-logo-main">Sweets <em>by Isis</em></span>
+        </div>
+        <ul class="pC-nav-links">
+          <li class="active">Inicio</li><li>Productos</li><li>Academia</li><li>Galería</li><li>Cotizar</li>
+        </ul>
+      </nav>
+      <div class="pC-hero">
+        <div class="pC-hero-left">
+          <div class="pC-eyebrow"><div class="pC-eyebrow-line"></div><span class="pC-eyebrow-text">Repostería creativa · Miami</span></div>
+          <h1 class="pC-headline">Dulces hechos<br>con <em>arte,</em><br><strong>regalados</strong> con amor</h1>
+          <p class="pC-subtext">Creaciones personalizadas para tus momentos más especiales — y talleres para quienes quieren llevar el arte de la repostería a otro nivel.</p>
+          <div class="pC-cta-row">
+            <button class="pC-btn-primary">Hacer un pedido</button>
+            <button class="pC-btn-ghost">Ver la academia →</button>
+          </div>
+        </div>
+        <div class="pC-hero-right">
+          <div class="pC-hero-card">
+            <div class="pC-pill-badge">Pedidos abiertos ✦</div>
+            <div class="pC-corner-tag">@sweets_by_isis</div>
+            <svg width="170" height="210" viewBox="0 0 170 210" fill="none">
+              <ellipse cx="85" cy="188" rx="65" ry="13" fill="#d4836a" opacity="0.2"/>
+              <rect x="16" y="136" width="138" height="54" rx="12" fill="#fdf7f2"/>
+              <rect x="16" y="136" width="138" height="20" rx="12" fill="#edd9cf"/>
+              <rect x="27" y="88" width="116" height="52" rx="10" fill="#fce8e2"/>
+              <rect x="27" y="88" width="116" height="18" rx="10" fill="#f7c5b0"/>
+              <rect x="42" y="48" width="86" height="44" rx="10" fill="#fdf7f2"/>
+              <rect x="42" y="48" width="86" height="16" rx="10" fill="#edd9cf"/>
+              <ellipse cx="85" cy="48" rx="43" ry="9" fill="#fce8e2"/>
+              <line x1="85" y1="14" x2="85" y2="36" stroke="#d4836a" stroke-width="1.5"/>
+              <ellipse cx="85" cy="11" rx="5" ry="9" fill="#d4836a" opacity="0.85"/>
+              <path d="M38 136 Q55 118 72 136" stroke="#d4836a" stroke-width="1" fill="none" opacity="0.5"/>
+              <path d="M76 136 Q93 118 110 136" stroke="#d4836a" stroke-width="1" fill="none" opacity="0.5"/>
+              <path d="M114 136 Q131 118 148 136" stroke="#d4836a" stroke-width="1" fill="none" opacity="0.5"/>
+              <circle cx="56" cy="104" r="5" fill="#d4836a" opacity="0.4"/>
+              <circle cx="85" cy="101" r="7" fill="#b07a6e" opacity="0.35"/>
+              <circle cx="114" cy="104" r="5" fill="#d4836a" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="pC-stats">
+        <div class="pC-stat"><div class="pC-stat-num">5+</div><div class="pC-stat-label">años de experiencia<br>artesanal</div></div>
+        <div class="pC-stat"><div class="pC-stat-num">100%</div><div class="pC-stat-label">personalizado<br>para ti</div></div>
+        <div class="pC-stat"><div class="pC-stat-label" style="font-size:13px;color:#1e1210;font-weight:400;line-height:1.5;">"Cada pedido<br>es único —<br><em style='font-family:Cormorant Garamond,serif;font-size:15px;'>como tú."</em></div></div>
+      </div>
+      <div class="pC-services">
+        <div class="pC-svc productos">
+          <div class="pC-svc-deco"></div>
+          <p class="pC-svc-tag">✦ encargos personalizados</p>
+          <h3 class="pC-svc-title">Productos & Cajas de Regalo</h3>
+          <p class="pC-svc-desc">Fresas decoradas, cakesicles, galletas artísticas y tortas de boda. Para bodas, cumpleaños y más.</p>
+          <span class="pC-svc-cta">Ver catálogo →</span>
+        </div>
+        <div class="pC-svc academia">
+          <div class="pC-svc-deco"></div>
+          <p class="pC-svc-tag">✦ academia sweets by isis</p>
+          <h3 class="pC-svc-title">Talleres de<br>Decoración</h3>
+          <p class="pC-svc-desc" style="color:#b09090;">Aprende glaseado, chocolate y decoración artesanal. Presencial y online. Plazas limitadas.</p>
+          <span class="pC-svc-cta">Ver próximas fechas →</span>
+        </div>
+      </div>
+      <div class="pC-gallery">
+        <div class="pC-section-header">
+          <h2 class="pC-section-title">Galería de trabajos</h2>
+          <div class="pC-section-line"></div>
+        </div>
+        <div class="pC-gallery-grid">
+          <div class="pC-gallery-item span2"><svg width="120" height="160" viewBox="0 0 120 160" fill="none"><ellipse cx="60" cy="148" rx="50" ry="10" fill="#d4836a" opacity="0.2"/><rect x="8" y="96" width="104" height="52" rx="10" fill="#fdf7f2"/><rect x="8" y="96" width="104" height="18" rx="10" fill="#edd9cf"/><rect x="18" y="58" width="84" height="42" rx="8" fill="#fce8e2"/><rect x="18" y="58" width="84" height="16" rx="8" fill="#f7c5b0"/><ellipse cx="60" cy="58" rx="42" ry="8" fill="#fdf7f2"/><line x1="60" y1="28" x2="60" y2="46" stroke="#d4836a" stroke-width="1.5"/><ellipse cx="60" cy="26" rx="4" ry="7" fill="#d4836a" opacity="0.8"/><circle cx="36" cy="74" r="4" fill="#d4836a" opacity="0.4"/><circle cx="60" cy="72" r="5" fill="#b07a6e" opacity="0.35"/><circle cx="84" cy="74" r="4" fill="#d4836a" opacity="0.4"/></svg><div class="pC-gallery-label">Wedding cake</div></div>
+          <div class="pC-gallery-item"><svg width="60" height="70" viewBox="0 0 60 70" fill="none"><ellipse cx="30" cy="38" rx="20" ry="24" fill="#f48fb1" opacity="0.4"/><path d="M18 30 Q30 16 42 30 Q30 50 18 30Z" fill="#d4836a" opacity="0.35"/></svg><div class="pC-gallery-label">Fresas deco</div></div>
+          <div class="pC-gallery-item"><svg width="55" height="70" viewBox="0 0 55 70" fill="none"><rect x="14" y="18" width="28" height="46" rx="12" fill="#edd9cf"/><rect x="14" y="18" width="28" height="16" rx="8" fill="#d4836a" opacity="0.5"/></svg><div class="pC-gallery-label">Cakesicles</div></div>
+          <div class="pC-gallery-item"><svg width="70" height="55" viewBox="0 0 70 55" fill="none"><rect x="8" y="14" width="54" height="36" rx="10" fill="#fce8e2"/><circle cx="22" cy="10" r="8" fill="#d4836a" opacity="0.35"/><circle cx="35" cy="8" r="8" fill="#d4836a" opacity="0.35"/><circle cx="48" cy="10" r="8" fill="#d4836a" opacity="0.35"/></svg><div class="pC-gallery-label">Galletas</div></div>
+          <div class="pC-gallery-item"><svg width="70" height="55" viewBox="0 0 70 55" fill="none"><ellipse cx="35" cy="30" rx="26" ry="20" fill="#f7e8e0"/><circle cx="35" cy="30" r="8" fill="#d4836a" opacity="0.3"/></svg><div class="pC-gallery-label">Corporativo</div></div>
+        </div>
+      </div>
+      <div class="pC-bottom">
+        <div class="pC-quote-block">
+          <div>
+            <div class="pC-quote-mark">"</div>
+            <p class="pC-quote-text">El cake de nuestra boda fue simplemente perfecto. Superó todas nuestras expectativas — hermoso y delicioso.</p>
+          </div>
+          <span class="pC-quote-author">— Cliente · Boda en Miami</span>
+        </div>
+        <div class="pC-contact-block">
+          <div>
+            <h3 class="pC-contact-title">¿Tienes una<br><em>ocasión especial?</em></h3>
+            <p class="pC-contact-desc">Cuéntanos tu visión y te respondemos con una propuesta personalizada en menos de 24 horas.</p>
+          </div>
+          <button class="pC-contact-btn">Solicitar cotización →</button>
+        </div>
+      </div>
+      <div class="pC-footer">
+        <span class="pC-footer-logo">Sweets by Isis — Miami, FL</span>
+        <div class="pC-footer-links">
+          <span class="pC-footer-link">Instagram</span>
+          <span class="pC-footer-link">TikTok</span>
+          <span class="pC-footer-link">WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.bar-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
