@@ -10,7 +10,7 @@ const contactItems = [
   { icon: '✉️', label: 'Email', value: 'hello@sweetsbyisis.com', href: 'mailto:hello@sweetsbyisis.com' },
   { icon: '📍', label: 'Location', value: 'Miami, Florida', href: null },
   { icon: '🕐', label: 'Hours', value: 'Mon–Sat  9:00 AM – 7:00 PM', href: null },
-  { icon: '📷', label: 'Instagram', value: '@sweetsbyisis', href: 'https://instagram.com/sweetsbyisis' },
+  { icon: '📷', label: 'Instagram', value: '@sweets_by_isis', href: 'https://www.instagram.com/sweets_by_isis/' },
 ]
 
 export default function ContactoPage() {

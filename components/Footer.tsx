@@ -13,7 +13,7 @@ export default function Footer() {
               Dulces hechos con arte, regalados con amor. Repostería artesanal en Miami, FL.
             </p>
             <div className="flex gap-4 mt-6">
-              <a href="https://instagram.com/sweetsbyisis" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/sweets_by_isis/" target="_blank" rel="noopener noreferrer"
                 className="text-white/60 hover:text-primary-light transition-colors text-sm font-sans">
                 Instagram
               </a>

@@ -202,7 +202,7 @@ export default function HomePage() {
       {/* ── GALLERY TEASER ── */}
       <section className="py-20 bg-surface-yellow border-t border-border-rose">
         <div className="max-w-container mx-auto px-4 md:px-8 text-center">
-          <span className="chip mb-4 inline-block">@sweetsbyisis</span>
+          <span className="chip mb-4 inline-block">@sweets_by_isis</span>
           <h2 className="font-garamond text-4xl text-plum mb-10">
             Galería <em className="italic text-primary-light">artesanal</em>
           </h2>
@@ -220,7 +220,7 @@ export default function HomePage() {
           </div>
           <div className="mt-8">
             <a
-              href="https://instagram.com/sweetsbyisis"
+              href="https://www.instagram.com/sweets_by_isis/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
