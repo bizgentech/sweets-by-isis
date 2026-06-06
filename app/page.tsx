@@ -1,27 +1,49 @@
 import Link from 'next/link'
 
-// Real AIDA-generated images from Stitch export
+// Stitch AIDA-generated images
 const HERO_IMG =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuAsfkifliFaYTFu50wtZnZC1xVlj1SPg_y8PI1Ru97Yc87zgl5S59YRKCxSv3FoJjcO2DUgG4K4rBpt5NhtyWihg7GgDQbfx9tMCQBvrqvUyjyxktol2gXRoUFCB0QUbnOVif51AeHKIBqgsB3-zYubzpfgndAprVYY5EZH2WsCLcv0PV1i4-xCTjJM2q6NM98Y4Z-Zl0acwKiP6IwPti7DsHABK5Gqvqs0F7Tozm3Mw4lhPScmAvHdK6SBotnsxnP67WGxl_yHEGHD'
+
+const AIDA = {
+  vintageCake:    'https://lh3.googleusercontent.com/aida-public/AB6AXuDh_DTDa7zDaNkRDowvDWvvoB2pduFMypHq1ZPJqjrAA1j-PEuvFK4mmpVvs7s2tqCnZxVmTthjtc1bw-bfPvWXEHArSu_ZZ4fsDy_RKw_k6wAO1QvsHNAIlPNdlnIiJlc-ph1Hxat0Uh0Xpb7TgmFcp3DjhPGrANRdtLBGgDbWdo6wP5T9atWU6P7YVkgkaHZroNROTZjWCff4i0pXFecRrTNo54a7CcV1XTUo8KwJvvtuGycpnkUWaYivxQAklBK6thA0jor-OfVT',
+  cajaSig:        'https://lh3.googleusercontent.com/aida-public/AB6AXuCLKL0chm-ASRCDE2zRV5Tb-Ksb6paiueaGsnwQ8q9IMMdqMW5tvgxNqb98jjqKgBUALFFHDWDD9FnWqmH7R1kJwrMjae4WZnOwMVfAh2mPnLYhFOg_qhOtPTEzhwwG7xtzb4ugpubSfy8ffWp6ojgYAdXJ2hRgop_x4NRWwAJiFBgc-Suli7l8ekdc8BY-TehpEposQ35ytW9D7o8SS3jOxEB3hf7OsWYvlsbxRuVl1R5FJ5-MRCuEotffu6iPuR5VBgq4Zgum7OOw',
+  cakesicles:     'https://lh3.googleusercontent.com/aida-public/AB6AXuBIA55cJ5saH2S9Nbj4mlLmfPNTvC1BRXcQYArVSLTNKf5OeaeGomd1eOUg13SR77IFiAUmkv3EIGdantUDVNlIIyrxqUPH7hx8RLlq5An_X9NpxbZ33lux4lyAK9vslEOdyo6djyGHk0KHNFpYDqFdcHE9hh4ppweqo259qvIRkyc8EI4I6WWr3vTwsrRH1k6-Z0gP6alofg_HGn0eR7XTa1FVfIoF_4IDC8n2qt8KlBI0EZdXoi_p9lpWiue1mOiLVOSFltLTiItc',
+  weddingCake:    'https://lh3.googleusercontent.com/aida-public/AB6AXuDf1F5QmIXCKN1nH-1gdWhhC9EVC_KPql07NfJxJb68rjnqOsxhlz3KnGv5TAzalISTj23oq4rbkmoTYLXWJaUFQFhCCMMfKmbH9dkYAUmbLcu6z07rBYM34vh4OowTAjzir57mmxYDMhKoK2ea6ty-bviwBmFVPl_W7Z3Cy4HsL8yWjN3hGRLmJqjbyH1OQ9jt0PHgcfId5CkDMDoKCPA7Ta42cyq-PK8IBXnFjGCJO4_0MtMdynR8DyaJI6boN3XohsMaQGqHXx0l',
+  workshop:       'https://lh3.googleusercontent.com/aida-public/AB6AXuAqtWFhEqarTam0D8H1dDezPRRt74QJZ9MFFMcmtzI4DzxCCe7sqvO69qYI-FCG0SgYW1KT6TAVApeimTWfNO0nc1C2QgFYqWJx0oZqPNcalFvC7AbVQ1rGWmL00U1BIfylNQ-SwPMSmmx_rQsZlvvKnjXWs9b-P8rcpdT69VoqRUr9ye3bXf6jkSvLuujbK_--ABjhrbG9G8n6XI21QhbSCEED8K98PiqJcr1p_z98vRFKSrTBcWZrt2AfgNrsEtOisIU4pzQjlkgR',
+  weddingSugar:   'https://lh3.googleusercontent.com/aida-public/AB6AXuCZA36LqGTALgyuXSdYcfTup6_CAQ30T0TyaHqwYb4dMUUEIwUXt01nqV9FiOPWyJjj5IvODia-eIpzqZPuOYzDx8yQa_o5YmYMR3JC5Dg6tW_n_B2TLxlFLKrodPmKQVvIKlX1cfl9kgp4_baQ9FqtFC4EOIajUxy2wAz9Pr8i5XD92zinGU41dqcE0cMlmsSEjs1CEPMYHHvNk_1S5ifw9NoHAnReVf_cFI4o5A942iPVeoM2pJtHvVW8pvZ-oj-iuk9kAQrFomlP',
+  cupcakes:       'https://lh3.googleusercontent.com/aida-public/AB6AXuCNDsxvk_r-q4_c0jiMoDrgLnSzOJ0GoN6u6H1G2AW5ec8HHFIB_QFrLCw0urR7zZNiPMVVZhfWWJ5bon_oAIFEPDbjmaueN9QtqBMzIkfiO5vmFpuvZNJrjL_LYZnkjAaRDg4vYN5k6R5qlTCNLWHfcHI8ZarDYjDdL3mw2mgbTMWBzjufaoeSjQwabFhY0MLOuxRwJL0XxPGuDmALQWJX2vyh5M6Pk9bkVAvNT92JoTrRdlAAOwLItIa9zCy5E7dqxu4RPZYZI_Dy',
+  macarons:       'https://lh3.googleusercontent.com/aida-public/AB6AXuBVLnW9d9j2KYWknfozJKsGXN04qeNpTG7u31mCDqd2md80-fZm_WuNwCDZIzEC_ofRvmN2lt4XUDiXuew-9WX1tZFHNcw844rOh6eXnR-kEZjf8Nxxe_J3wNFpDA1Osc_y_H363SOstAzqdHbRGGVY2a2HogiOsqfKeSShpM-jkHjQXu9l8H_Wt497bpF-2z-OyGkfB8DDG3OwVr0gRKL_NNdEJhb1kBcGeSxC8xc3faV1KIaVVPVV-F6AVfmjlbOm4n2yq5mTByw-',
+}
+
+const galleryImgs = [
+  HERO_IMG,
+  AIDA.vintageCake,
+  AIDA.cajaSig,
+  AIDA.cakesicles,
+  AIDA.weddingCake,
+  AIDA.weddingSugar,
+  AIDA.cupcakes,
+  AIDA.macarons,
+]
 
 const featuredProducts = [
   {
     name: 'Vintage Floral Cake',
     desc: 'Vainilla con relleno de maracuyá',
     price: 'Desde $120',
-    img: 'https://picsum.photos/seed/cake1/600/700',
+    img: AIDA.vintageCake,
   },
   {
     name: 'Fresas con Chocolate',
     desc: 'Fresas jumbo con chocolate belga premium',
     price: 'Desde $45',
-    img: 'https://picsum.photos/seed/strawberry/600/700',
+    img: AIDA.cajaSig,
   },
   {
     name: 'Cakesicles Pastel',
     desc: 'Colección 6 piezas de brownie',
     price: 'Desde $35',
-    img: 'https://picsum.photos/seed/cakesicle/600/700',
+    img: AIDA.cakesicles,
   },
 ]
 
@@ -176,8 +198,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-card overflow-hidden aspect-video shadow-bloom">
               {/* eslint-disable-next-line @next/next/no-img-element */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://picsum.photos/seed/baking-class/800/500"
+                src={AIDA.workshop}
                 alt="Academia de Repostería Sweets by Isis"
                 className="w-full h-full object-cover"
               />
@@ -207,12 +230,12 @@ export default function HomePage() {
             Galería <em className="italic text-primary-light">artesanal</em>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            {galleryImgs.map((src, i) => (
               <div key={i} className="aspect-square rounded-card-sm overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://picsum.photos/seed/gallery${i}/400/400`}
-                  alt={`Galería ${i}`}
+                  src={src}
+                  alt={`Galería ${i + 1}`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>

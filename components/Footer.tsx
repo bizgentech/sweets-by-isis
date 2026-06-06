@@ -71,6 +71,21 @@ export default function Footer() {
             Hecho con ✦ en Miami
           </p>
         </div>
+
+        <div className="border-t border-white/10 mt-4 pt-4 flex justify-center">
+          <a
+            href="https://www.bgtecnologies.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-1.5 text-xs text-muted hover:text-primary-light transition-colors duration-200"
+          >
+            <span>Powered by</span>
+            <span className="font-semibold text-primary-light group-hover:underline">
+              BizGen Technologies
+            </span>
+            <span className="text-[10px] opacity-50">↗</span>
+          </a>
+        </div>
       </div>
     </footer>
   )

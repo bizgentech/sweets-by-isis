@@ -5,7 +5,7 @@ export const metadata = {
   description: 'Aprende repostería creativa con talleres presenciales en Miami. Cupos limitados.',
 }
 
-// Stitch AIDA-generated image
+// Stitch AIDA-generated images
 const HERO_IMG =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuAqtWFhEqarTam0D8H1dDezPRRt74QJZ9MFFMcmtzI4DzxCCe7sqvO69qYI-FCG0SgYW1KT6TAVApeimTWfNO0nc1C2QgFYqWJx0oZqPNcalFvC7AbVQ1rGWmL00U1BIfylNQ-SwPMSmmx_rQsZlvvKnjXWs9b-P8rcpdT69VoqRUr9ye3bXf6jkSvLuujbK_--ABjhrbG9G8n6XI21QhbSCEED8K98PiqJcr1p_z98vRFKSrTBcWZrt2AfgNrsEtOisIU4pzQjlkgR'
 
@@ -17,7 +17,7 @@ const courses = [
     spots: 6,
     desc: 'Aprende las técnicas fundamentales de decoración con royal icing, colores y diseños únicos.',
     price: '$85',
-    img: 'https://picsum.photos/seed/course1/600/400',
+    img: HERO_IMG,
   },
   {
     title: 'Trabajo con Chocolate',
@@ -26,7 +26,7 @@ const courses = [
     spots: 4,
     desc: 'Domina el temple del chocolate, crea bombones, trufas y decoraciones artísticas avanzadas.',
     price: '$110',
-    img: 'https://picsum.photos/seed/course2/600/400',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNDsxvk_r-q4_c0jiMoDrgLnSzOJ0GoN6u6H1G2AW5ec8HHFIB_QFrLCw0urR7zZNiPMVVZhfWWJ5bon_oAIFEPDbjmaueN9QtqBMzIkfiO5vmFpuvZNJrjL_LYZnkjAaRDg4vYN5k6R5qlTCNLWHfcHI8ZarDYjDdL3mw2mgbTMWBzjufaoeSjQwabFhY0MLOuxRwJL0XxPGuDmALQWJX2vyh5M6Pk9bkVAvNT92JoTrRdlAAOwLItIa9zCy5E7dqxu4RPZYZI_Dy',
   },
   {
     title: 'Tortas de Diseño',
@@ -35,7 +35,7 @@ const courses = [
     spots: 5,
     desc: 'Técnicas profesionales de relleno, cobertura y decoración floral para tortas de ocasión.',
     price: '$140',
-    img: 'https://picsum.photos/seed/course3/600/400',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDh_DTDa7zDaNkRDowvDWvvoB2pduFMypHq1ZPJqjrAA1j-PEuvFK4mmpVvs7s2tqCnZxVmTthjtc1bw-bfPvWXEHArSu_ZZ4fsDy_RKw_k6wAO1QvsHNAIlPNdlnIiJlc-ph1Hxat0Uh0Xpb7TgmFcp3DjhPGrANRdtLBGgDbWdo6wP5T9atWU6P7YVkgkaHZroNROTZjWCff4i0pXFecRrTNo54a7CcV1XTUo8KwJvvtuGycpnkUWaYivxQAklBK6thA0jor-OfVT',
   },
   {
     title: 'Cakesicles & Mini Postres',
@@ -44,7 +44,7 @@ const courses = [
     spots: 8,
     desc: 'Crea cakesicles, cake pops y mini postres decorados perfectos para eventos y regalos.',
     price: '$70',
-    img: 'https://picsum.photos/seed/course4/600/400',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIA55cJ5saH2S9Nbj4mlLmfPNTvC1BRXcQYArVSLTNKf5OeaeGomd1eOUg13SR77IFiAUmkv3EIGdantUDVNlIIyrxqUPH7hx8RLlq5An_X9NpxbZ33lux4lyAK9vslEOdyo6djyGHk0KHNFpYDqFdcHE9hh4ppweqo259qvIRkyc8EI4I6WWr3vTwsrRH1k6-Z0gP6alofg_HGn0eR7XTa1FVfIoF_4IDC8n2qt8KlBI0EZdXoi_p9lpWiue1mOiLVOSFltLTiItc',
   },
 ]
 

@@ -3,8 +3,6 @@ export const metadata = {
   description: 'Solicita tu cotización personalizada. Respuesta garantizada en menos de 24 horas.',
 }
 
-const MAP_IMG =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuBg2v-5L1U38YSMNhVyWPMy3r8WbkLGyXlWoPjoTgCSmjndieXEEPovXKv29bMnYIfkzQ6-XUF0BI3esiEchdrfu6hHZq9O8pQOHJ-Jj4NW5bQGeH7tzW-5q_LJU08L8Rz1cWEovO2tIzDMCbzHTPJONg8URkepVHFimDLRcwqyoLhxPBzP7LydNH54fMTfL-N5B3E9-ra-71XA6TKBfQgK9L7rT9VIif-yUNhpoXRJyCF1xfZEgF5DnSrhgyriJdA2NXGqciymHUlJ'
 
 const contactItems = [
   { icon: '✉️', label: 'Email', value: 'hello@sweetsbyisis.com', href: 'mailto:hello@sweetsbyisis.com' },
@@ -177,14 +175,17 @@ export default function ContactoPage() {
         <h3 className="font-garamond text-3xl text-primary mb-8">
           Servimos toda el área de South Florida
         </h3>
-        <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-bloom bg-surface-container-low relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={MAP_IMG}
-            alt="Área de servicio — South Florida"
-            className="w-full h-full object-cover opacity-80"
+        <div className="w-full rounded-[20px] overflow-hidden shadow-bloom">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d459631.8!2d-80.6!3d25.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sSouth%20Florida!5e0!3m2!1sen!2sus!4v1"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="South Florida service area"
           />
-          <div className="absolute inset-0 bg-primary/5 pointer-events-none mix-blend-multiply" />
         </div>
       </section>
     </>
