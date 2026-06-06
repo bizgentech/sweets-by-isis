@@ -67,9 +67,6 @@ export default function Footer() {
           <p className="text-xs text-white/40 font-sans">
             © {new Date().getFullYear()} Sweets by Isis. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-white/30 font-sans">
-            Hecho con ✦ en Miami
-          </p>
         </div>
 
         <div className="border-t border-white/10 mt-4 pt-4 flex justify-center">
