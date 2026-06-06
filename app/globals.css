@@ -2,25 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface text-plum font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-garamond;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary {
+    @apply bg-primary-light text-white font-sans font-medium px-8 py-3 rounded-pill hover:bg-primary transition-colors duration-200 inline-block;
+  }
+  .btn-outline {
+    @apply border border-primary-light text-primary font-sans font-medium px-8 py-3 rounded-pill hover:bg-primary-light hover:text-white transition-colors duration-200 inline-block;
+  }
+  .container-main {
+    @apply max-w-container mx-auto px-6 md:px-10;
+  }
+  .section-padding {
+    @apply py-section-mobile md:py-section;
+  }
+  .card {
+    @apply bg-surface-yellow rounded-card shadow-bloom border border-border-rose;
+  }
+  .chip {
+    @apply bg-lilac text-plum text-xs font-sans font-semibold px-4 py-1 rounded-pill;
+  }
+  .input-field {
+    @apply w-full border-0 border-b border-border-rose bg-transparent py-3 text-plum placeholder-muted focus:border-primary-light focus:outline-none transition-colors;
+  }
 }
 
 @layer utilities {
+  .glass-nav {
+    background: rgba(255, 248, 248, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
   .text-balance {
     text-wrap: balance;
   }
