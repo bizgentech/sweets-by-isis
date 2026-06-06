@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__stitch__list_screens",
+      "mcp__stitch__list_design_systems",
+      "Bash(git -C /Users/user/Desktop/Dev/sweets status)",
+      "WebFetch(domain:contribution.usercontent.google.com)",
+      "Bash(npx create-next-app@14 . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(mv /Users/user/Desktop/Dev/sweets/.claude /tmp/.claude-sweets-backup)",
+      "Bash(npx create-next-app@14 /Users/user/Desktop/Dev/sweets --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)"
+    ]
+  }
+}
