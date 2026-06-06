@@ -30,10 +30,17 @@ export default function HomePage() {
     <>
       {/* ── HERO ── */}
       <section className="max-w-container mx-auto px-4 md:px-8 pt-8 md:pt-16 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-6 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-6 lg:items-stretch">
 
           {/* Left: content — 5 cols */}
-          <div className="lg:col-span-5 flex flex-col items-start gap-6 order-2 lg:order-1 relative z-10">
+          <div className="lg:col-span-5 flex flex-col items-start gap-6 order-2 lg:order-1 relative z-10 justify-center">
+
+            {/* "Pedidos abiertos" badge — above eyebrow */}
+            <div className="inline-flex items-center gap-2 bg-lilac text-plum rounded-full px-4 py-1.5 font-sans text-xs font-semibold tracking-widest uppercase">
+              <span className="w-2 h-2 rounded-full bg-primary-light animate-pulse flex-shrink-0" />
+              Pedidos abiertos ✦
+            </div>
+
             <span className="inline-block px-4 py-2 bg-lilac text-plum rounded-full font-sans text-xs font-semibold uppercase tracking-wider">
               ✦ Repostería artesanal · Miami, FL
             </span>
@@ -66,18 +73,14 @@ export default function HomePage() {
           </div>
 
           {/* Right: image — 7 cols */}
-          <div className="lg:col-span-7 order-1 lg:order-2 relative">
-            <div className="relative w-full aspect-[4/5] md:aspect-[16/11] rounded-3xl overflow-hidden bg-primary-light/10 shadow-bloom-md border border-outline-rose/30 lg:translate-x-8">
+          <div className="lg:col-span-7 order-1 lg:order-2 lg:translate-x-8">
+            <div className="w-full aspect-[4/5] md:aspect-[3/4] lg:aspect-auto lg:h-full lg:min-h-[520px] shadow-bloom-md">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={HERO_IMG}
                 alt="Torta de boda artesanal — Sweets by Isis"
-                className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700 ease-in-out"
+                className="w-full h-full object-cover rounded-[24px] opacity-90 hover:scale-105 transition-transform duration-700 ease-in-out"
               />
-              {/* Floating badge */}
-              <div className="absolute top-6 left-6 md:-left-5 bg-lilac text-plum px-5 py-3 rounded-full font-sans text-sm font-medium shadow-lg border border-border-rose z-20 flex items-center gap-2">
-                Pedidos abiertos <span className="text-primary-light">✦</span>
-              </div>
             </div>
           </div>
         </div>
