@@ -37,7 +37,7 @@ export default function RootLayout({
       <body>
         <AnnouncementBar />
         <Navbar />
-        <main>{children}</main>
+        <main className="flex-grow pt-[120px]">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>

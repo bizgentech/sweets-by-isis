@@ -1,76 +1,109 @@
 import Link from 'next/link'
 
-const featuredProducts = [
-  { name: 'Vintage Floral Cake', desc: 'Vainilla con relleno de maracuyá', price: 'Desde $120', img: 'https://picsum.photos/seed/cake1/600/700' },
-  { name: 'Fresas con Chocolate', desc: 'Fresas jumbo con chocolate belga premium', price: 'Desde $45', img: 'https://picsum.photos/seed/strawberry/600/700' },
-  { name: 'Cakesicles Pastel', desc: 'Colección 6 piezas de brownie', price: 'Desde $35', img: 'https://picsum.photos/seed/cakesicle/600/700' },
-]
+// Real AIDA-generated images from Stitch export
+const HERO_IMG =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuAsfkifliFaYTFu50wtZnZC1xVlj1SPg_y8PI1Ru97Yc87zgl5S59YRKCxSv3FoJjcO2DUgG4K4rBpt5NhtyWihg7GgDQbfx9tMCQBvrqvUyjyxktol2gXRoUFCB0QUbnOVif51AeHKIBqgsB3-zYubzpfgndAprVYY5EZH2WsCLcv0PV1i4-xCTjJM2q6NM98Y4Z-Zl0acwKiP6IwPti7DsHABK5Gqvqs0F7Tozm3Mw4lhPScmAvHdK6SBotnsxnP67WGxl_yHEGHD'
 
-const stats = [
-  { value: '5+', label: 'Años de experiencia' },
-  { value: '500+', label: 'Pedidos realizados' },
-  { value: '100%', label: 'Hechos a mano' },
+const featuredProducts = [
+  {
+    name: 'Vintage Floral Cake',
+    desc: 'Vainilla con relleno de maracuyá',
+    price: 'Desde $120',
+    img: 'https://picsum.photos/seed/cake1/600/700',
+  },
+  {
+    name: 'Fresas con Chocolate',
+    desc: 'Fresas jumbo con chocolate belga premium',
+    price: 'Desde $45',
+    img: 'https://picsum.photos/seed/strawberry/600/700',
+  },
+  {
+    name: 'Cakesicles Pastel',
+    desc: 'Colección 6 piezas de brownie',
+    price: 'Desde $35',
+    img: 'https://picsum.photos/seed/cakesicle/600/700',
+  },
 ]
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative bg-surface overflow-hidden">
-        <div className="container-main section-padding">
-          <div className="grid md:grid-cols-2 gap-12 items-center min-h-[70vh]">
-            <div className="order-2 md:order-1">
-              {/* Badge */}
-              <span className="chip mb-6 inline-block">✦ Pedidos abiertos — Miami, FL</span>
-              <h1 className="font-garamond text-5xl md:text-6xl lg:text-7xl text-plum leading-tight mb-6">
-                Dulces hechos con{' '}
-                <em className="text-primary-light not-italic italic">arte</em>,<br />
-                regalados con amor
-              </h1>
-              <p className="font-sans text-lg text-muted font-light leading-relaxed mb-8 max-w-md">
-                Repostería artesanal personalizada para tus momentos más especiales.
-                Cada pedido es único — como tú.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/dulces" className="btn-primary">Ver Catálogo</Link>
-                <Link href="/contacto" className="btn-outline">Solicitar Cotización</Link>
-              </div>
+      {/* ── HERO ── */}
+      <section className="max-w-container mx-auto px-4 md:px-8 pt-8 md:pt-16 pb-16 md:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-6 items-center">
+
+          {/* Left: content — 5 cols */}
+          <div className="lg:col-span-5 flex flex-col items-start gap-6 order-2 lg:order-1 relative z-10">
+            <span className="inline-block px-4 py-2 bg-lilac text-plum rounded-full font-sans text-xs font-semibold uppercase tracking-wider">
+              ✦ Repostería artesanal · Miami, FL
+            </span>
+
+            <h1 className="font-garamond text-4xl md:text-5xl lg:text-[48px] leading-[1.1] text-plum">
+              Dulces hechos con{' '}
+              <span className="italic text-primary-light">arte</span>,
+              regalados con amor
+            </h1>
+
+            <p className="font-sans text-lg font-light text-muted leading-relaxed max-w-md">
+              Creaciones personalizadas para tus momentos más especiales.
+              Y talleres para quienes quieren aprender el oficio.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto">
+              <Link
+                href="/contacto"
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary-light text-white rounded-full font-sans text-base font-medium hover:bg-primary transition-all duration-300 shadow-sm hover:shadow-bloom hover:-translate-y-0.5"
+              >
+                Hacer un pedido
+              </Link>
+              <Link
+                href="/cursos"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-outline-rose text-primary rounded-full font-sans text-base font-medium hover:bg-surface-yellow transition-all duration-300"
+              >
+                Ver la academia →
+              </Link>
             </div>
-            <div className="order-1 md:order-2 relative">
-              <div className="relative rounded-card overflow-hidden aspect-[4/5] shadow-bloom-md">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://picsum.photos/seed/hero-cake/800/1000"
-                  alt="Custom artisanal cake by Sweets by Isis"
-                  className="w-full h-full object-cover"
-                />
-                {/* Floating badge */}
-                <div className="absolute top-6 -left-4 bg-lilac rounded-pill px-5 py-2 shadow-bloom text-sm font-sans font-semibold text-plum">
-                  Bodas 2025 ✦
-                </div>
+          </div>
+
+          {/* Right: image — 7 cols */}
+          <div className="lg:col-span-7 order-1 lg:order-2 relative">
+            <div className="relative w-full aspect-[4/5] md:aspect-[16/11] rounded-3xl overflow-hidden bg-primary-light/10 shadow-bloom-md border border-outline-rose/30 lg:translate-x-8">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={HERO_IMG}
+                alt="Torta de boda artesanal — Sweets by Isis"
+                className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700 ease-in-out"
+              />
+              {/* Floating badge */}
+              <div className="absolute top-6 left-6 md:-left-5 bg-lilac text-plum px-5 py-3 rounded-full font-sans text-sm font-medium shadow-lg border border-border-rose z-20 flex items-center gap-2">
+                Pedidos abiertos <span className="text-primary-light">✦</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="bg-primary-light/10 border-y border-border-rose py-10">
-        <div className="container-main">
-          <div className="grid grid-cols-3 gap-6 text-center">
-            {stats.map((s) => (
-              <div key={s.value}>
-                <p className="font-garamond text-4xl text-primary">{s.value}</p>
-                <p className="font-sans text-xs text-muted uppercase tracking-widest mt-1">{s.label}</p>
-              </div>
-            ))}
-          </div>
+      {/* ── STATS BAR ── matches Stitch: border-l-2 cards on surface-container-low */}
+      <section className="max-w-container mx-auto px-4 md:px-8 pb-16 md:pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            '5+ años de experiencia artesanal',
+            '100% personalizado para ti',
+            'Cada pedido es único — como tú.',
+          ].map((text) => (
+            <div
+              key={text}
+              className="flex items-center justify-center p-6 border-l-2 border-primary-light bg-surface-yellow rounded-r-lg"
+            >
+              <span className="font-sans text-base text-plum font-medium">{text}</span>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* FEATURED PRODUCTS */}
-      <section className="section-padding bg-surface">
-        <div className="container-main">
+      {/* ── FEATURED PRODUCTS ── */}
+      <section className="bg-surface border-t border-border-rose py-20">
+        <div className="max-w-container mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
             <span className="chip mb-4 inline-block">Nuestras Creaciones</span>
             <h2 className="font-garamond text-4xl md:text-5xl text-plum">
@@ -79,7 +112,10 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map((p) => (
-              <div key={p.name} className="card overflow-hidden group hover:shadow-bloom-md transition-shadow duration-300">
+              <div
+                key={p.name}
+                className="card overflow-hidden group hover:shadow-bloom-md transition-shadow duration-300"
+              >
                 <div className="aspect-[4/5] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -97,14 +133,16 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/dulces" className="btn-outline">Ver Catálogo Completo</Link>
+            <Link href="/dulces" className="btn-outline">
+              Ver Catálogo Completo
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="section-padding bg-surface-yellow border-y border-border-rose">
-        <div className="container-main">
+      {/* ── PROCESS ── */}
+      <section className="py-20 bg-surface-yellow border-y border-border-rose">
+        <div className="max-w-container mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
             <h2 className="font-garamond text-4xl md:text-5xl text-plum">
               ¿Cómo <em className="italic text-primary-light">funciona</em>?
@@ -129,11 +167,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* COURSES CTA */}
-      <section className="section-padding bg-surface">
-        <div className="container-main">
+      {/* ── COURSES CTA ── */}
+      <section className="py-20 bg-surface">
+        <div className="max-w-container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="rounded-card overflow-hidden aspect-video">
+            <div className="rounded-card overflow-hidden aspect-video shadow-bloom">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://picsum.photos/seed/baking-class/800/500"
@@ -148,18 +186,19 @@ export default function HomePage() {
                 <em className="italic text-primary-light">repostería creativa</em>
               </h2>
               <p className="font-sans text-base text-muted font-light leading-relaxed mb-6">
-                Talleres presenciales en Miami con técnicas profesionales. Aprende a decorar galletas,
-                trabajar con chocolate y crear postres que deleitan. Cupos limitados.
+                Talleres presenciales en Miami con técnicas profesionales. Cupos limitados.
               </p>
-              <Link href="/cursos" className="btn-primary">Ver Cursos Disponibles</Link>
+              <Link href="/cursos" className="btn-primary">
+                Ver Cursos Disponibles
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* INSTAGRAM / GALLERY TEASER */}
-      <section className="section-padding bg-surface-yellow border-y border-border-rose">
-        <div className="container-main text-center">
+      {/* ── GALLERY TEASER ── */}
+      <section className="py-20 bg-surface-yellow border-t border-border-rose">
+        <div className="max-w-container mx-auto px-4 md:px-8 text-center">
           <span className="chip mb-4 inline-block">@sweetsbyisis</span>
           <h2 className="font-garamond text-4xl text-plum mb-10">
             Galería <em className="italic text-primary-light">artesanal</em>
@@ -170,15 +209,21 @@ export default function HomePage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`https://picsum.photos/seed/gallery${i}/400/400`}
-                  alt={`Gallery item ${i}`}
+                  alt={`Galería ${i}`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
             ))}
           </div>
           <div className="mt-8">
-            <a href="https://instagram.com/sweetsbyisis" target="_blank" rel="noopener noreferrer"
-              className="btn-outline">Ver en Instagram</a>
+            <a
+              href="https://instagram.com/sweetsbyisis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              Ver en Instagram
+            </a>
           </div>
         </div>
       </section>

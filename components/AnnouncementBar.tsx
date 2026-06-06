@@ -1,9 +1,9 @@
 export default function AnnouncementBar() {
   return (
-    <div className="bg-primary-light/20 border-b border-border-rose py-2 text-center">
-      <p className="text-sm font-sans text-primary font-medium tracking-wide">
-        ✦ Pedidos abiertos para bodas 2025 — Reserva tu fecha hoy ✦
-      </p>
+    <div className="w-full bg-primary-light text-white py-2 px-4 text-center">
+      <span className="font-sans text-xs font-semibold tracking-widest uppercase">
+        🎂 ¡Pedidos para bodas 2025 disponibles! Reserva tu fecha →
+      </span>
     </div>
   )
 }

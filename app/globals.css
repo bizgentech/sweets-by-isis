@@ -38,6 +38,15 @@
   }
 }
 
+/* Masonry grid — matches Stitch CSS columns layout */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 24px;
+}
+@media (min-width: 768px) { .masonry-grid { column-count: 2; } }
+@media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+.masonry-item { break-inside: avoid; margin-bottom: 24px; }
+
 @layer utilities {
   .glass-nav {
     background: rgba(255, 248, 248, 0.7);

@@ -19,6 +19,13 @@ const config: Config = {
         muted: '#8a6070',
         'border-rose': '#f5c8d8',
         'outline-rose': '#dac0c5',
+        'surface-container': '#fceaec',
+        'surface-container-low': '#fff0f2',
+        'surface-container-high': '#f6e4e6',
+        'tertiary-fixed': '#e9def5',
+        'on-tertiary-container': '#373042',
+        'primary-fixed': '#ffd9e1',
+        tertiary: '#635b6e',
       },
       fontFamily: {
         garamond: ['var(--font-garamond)', 'Georgia', 'serif'],
