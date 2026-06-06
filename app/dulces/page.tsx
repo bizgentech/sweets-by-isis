@@ -223,7 +223,7 @@ export default function DulcesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="https://wa.me/13059999999?text=Hola%2C%20me%20interesa%20hacer%20un%20pedido"
+                href="https://wa.me/13058792205?text=Hola%2C%20me%20interesa%20hacer%20un%20pedido"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-primary-light text-white font-sans font-medium px-8 py-4 rounded-full flex items-center gap-2 hover:bg-primary transition-colors w-full sm:w-auto justify-center"

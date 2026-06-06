@@ -17,7 +17,7 @@ export default function Footer() {
                 className="text-white/60 hover:text-primary-light transition-colors text-sm font-sans">
                 Instagram
               </a>
-              <a href="https://wa.me/13059999999" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/13058792205" target="_blank" rel="noopener noreferrer"
                 className="text-white/60 hover:text-primary-light transition-colors text-sm font-sans">
                 WhatsApp
               </a>
@@ -54,7 +54,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/13059999999" className="hover:text-primary-light transition-colors">
+                <a href="https://wa.me/13058792205" className="hover:text-primary-light transition-colors">
                   WhatsApp disponible
                 </a>
               </li>

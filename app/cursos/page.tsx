@@ -214,7 +214,7 @@ export default function CursosPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="https://wa.me/13059999999?text=Hola%2C%20me%20interesa%20reservar%20un%20cupo%20en%20un%20taller"
+                href="https://wa.me/13058792205?text=Hola%2C%20me%20interesa%20reservar%20un%20cupo%20en%20un%20taller"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-primary-light text-white font-sans font-medium px-8 py-4 rounded-full hover:bg-primary transition-colors w-full sm:w-auto justify-center flex items-center gap-2"

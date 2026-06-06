@@ -70,7 +70,7 @@ export default function ContactoPage() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/13059999999?text=Hola%2C%20me%20interesa%20solicitar%20una%20cotización"
+              href="https://wa.me/13058792205?text=Hola%2C%20me%20interesa%20solicitar%20una%20cotización"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full px-6 py-4 rounded-full font-sans text-base font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-white"
