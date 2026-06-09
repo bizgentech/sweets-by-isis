@@ -112,7 +112,7 @@ export default function HomePage() {
       <section className="max-w-container mx-auto px-4 md:px-8 pb-16 md:pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            '5+ años de experiencia artesanal',
+            '10+ años de experiencia artesanal',
             '100% personalizado para ti',
             'Cada pedido es único — como tú.',
           ].map((text) => (
