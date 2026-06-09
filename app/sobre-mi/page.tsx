@@ -73,7 +73,7 @@ export default function SobreMiPage() {
               Hola, soy Isis ✦
             </h1>
             <p className="font-sans text-lg font-light text-muted leading-relaxed">
-              Con más de 5 años de experiencia, mi pasión es transformar ingredientes simples en
+              Con más de 10 años de experiencia, mi pasión es transformar ingredientes simples en
               obras de arte comestibles. En Sweets by Isis, creemos que cada celebración merece un
               toque de magia y dulzura, creado con precisión y amor desde el corazón de Miami.
             </p>
@@ -82,6 +82,21 @@ export default function SobreMiPage() {
               constante de la perfección en la pastelería moderna. Cada diseño refleja una
               dedicación profunda al arte y al sabor.
             </p>
+            {/* Experience badge */}
+            <div className="flex items-center gap-4 py-5 px-6 bg-gradient-to-r from-primary-fixed to-tertiary-fixed rounded-2xl border border-outline-rose/40 shadow-bloom">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-white shadow-bloom flex flex-col items-center justify-center">
+                <span className="font-garamond text-2xl font-bold leading-none text-primary">10+</span>
+              </div>
+              <div>
+                <p className="font-garamond text-xl italic text-plum leading-tight">
+                  Over 10 years of experience
+                </p>
+                <p className="font-sans text-xs text-muted tracking-wide mt-0.5">
+                  en repostería artesanal · Miami, FL
+                </p>
+              </div>
+            </div>
+
             <div className="pt-6 border-t border-outline-rose/30">
               <span className="font-garamond text-4xl italic text-primary opacity-80 select-none">
                 Isis

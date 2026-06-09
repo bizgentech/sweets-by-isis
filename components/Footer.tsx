@@ -49,8 +49,8 @@ export default function Footer() {
             <ul className="space-y-3 text-sm font-sans text-white/60">
               <li>📍 Miami, Florida</li>
               <li>
-                <a href="mailto:hello@sweetsbyisis.com" className="hover:text-primary-light transition-colors">
-                  hello@sweetsbyisis.com
+                <a href="mailto:Sweetsbyisis@yahoo.com" className="hover:text-primary-light transition-colors">
+                  Sweetsbyisis@yahoo.com
                 </a>
               </li>
               <li>
