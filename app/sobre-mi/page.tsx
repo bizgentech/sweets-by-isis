@@ -144,17 +144,17 @@ export default function SobreMiPage() {
           </div>
         </div>
 
-        <div className="masonry-grid">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
           {portfolioItems.map((item) => (
             <div
               key={item.label}
-              className="masonry-item relative group rounded-[20px] overflow-hidden shadow-bloom"
+              className="relative group rounded-[20px] overflow-hidden shadow-bloom aspect-[4/3]"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={item.img}
                 alt={item.alt}
-                className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-surface/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="font-garamond text-2xl text-plum bg-surface/90 px-6 py-2 rounded-full shadow-sm">
