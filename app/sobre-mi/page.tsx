@@ -51,12 +51,12 @@ export default function SobreMiPage() {
       <section className="max-w-container mx-auto px-6 md:px-8 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left: portrait */}
-          <div className="relative w-full h-[600px] rounded-[20px] overflow-hidden shadow-bloom">
+          <div className="relative w-full max-w-[480px] mx-auto rounded-[20px] overflow-hidden shadow-bloom">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={IMGS.portrait}
               alt="Isis en su cocina"
-              className="w-full h-full object-cover"
+              className="w-full h-auto"
             />
             <div className="absolute top-6 left-6 bg-tertiary-fixed text-plum px-4 py-1 rounded-full font-sans text-xs font-semibold tracking-widest shadow-sm">
               Pedidos abiertos ✦
