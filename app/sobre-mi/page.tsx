@@ -72,14 +72,13 @@ export default function SobreMiPage() {
               Hola, soy Isis ✦
             </h1>
             <p className="font-sans text-lg font-light text-muted leading-relaxed">
-              Con más de 10 años de experiencia, mi pasión es transformar ingredientes simples en
-              obras de arte comestibles. En Sweets by Isis, creemos que cada celebración merece un
-              toque de magia y dulzura, creado con precisión y amor desde el corazón de Miami.
+              Hola, soy Isis, fundadora de Sweets by Isis. Durante más de 10 años, he ayudado a
+              familias a celebrar los momentos más importantes de la vida a través de pasteles
+              personalizados, postres y experiencias para eventos.
             </p>
             <p className="font-sans text-base text-muted leading-relaxed">
-              Mi viaje comenzó en la cocina de mi abuela y se ha convertido en una búsqueda
-              constante de la perfección en la pastelería moderna. Cada diseño refleja una
-              dedicación profunda al arte y al sabor.
+              Mi pasión es crear dulces hermosos y memorables que llenen de alegría cada
+              celebración.
             </p>
             {/* Experience badge */}
             <div className="flex items-center gap-4 py-5 px-6 bg-gradient-to-r from-primary-fixed to-tertiary-fixed rounded-2xl border border-outline-rose/40 shadow-bloom">
